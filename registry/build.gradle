@@ -1,0 +1,13 @@
+dependencies {
+    implementation('org.springframework.cloud:spring-cloud-starter-netflix-eureka-server') {
+        // Fix [WARN] You already have RibbonLoadBalancerClient on your classpath. It will be
+        // used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching
+        // to BlockingLoadBalancerClient instead. In order to use it, set the
+        // value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove
+        // spring-cloud-starter-netflix-ribbon from your project.
+        exclude group: 'org.springframework.cloud', module: 'spring-cloud-starter-netflix-ribbon'
+    }
+    // Fix [WARN] Spring Cloud LoadBalancer is currently working with the default cache.
+    // You can switch to using Caffeine cache, by adding it to the classpath.
+    implementation "com.github.ben-manes.caffeine:caffeine:$VER_CAFFEINE"
+}
