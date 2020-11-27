@@ -1,3 +1,4 @@
 rootProject.name = 'spring-cloud-example'
 
 include ':registry'
+include ':spring-cloud-nacos'
